@@ -1,15 +1,15 @@
 class Nocmt < Formula
   desc "Tool for removing comments from source code while preserving structure"
   homepage "https://github.com/2mawi2/nocmt"
-  url "https://github.com/2mawi2/nocmt/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "472b0883c803743d44d0222fcc58cb8e7271ae0f06ecd49bf97c88d16860a36e"
+  url "https://github.com/2mawi2/nocmt/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "538bb690fb3c5ced11e527814fff0682e95a36a276d8607944a1ceceb7fad771"
   license "MIT"
 
   depends_on "go" => :build
 
   def install
     ENV["CGO_ENABLED"] = "1"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=1.1.0")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=1.1.1")
   end
 
   test do
