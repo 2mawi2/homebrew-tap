@@ -1,8 +1,8 @@
 class Sw < Formula
   desc "A fast project switcher for developers"
   homepage "https://github.com/2mawi2/switchr"
-  url "https://github.com/2mawi2/switchr/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "097a143cb0658ff700fc51db1cdb03fdfa59a2abfad73e569d882187cc92e74f"
+  url "https://github.com/2mawi2/switchr/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "d9abfc464edddbd351189a8dbb51d8e479296651bc235dc8ea36005cb3f04955"
   license "MIT"
 
   depends_on "rust" => :build
