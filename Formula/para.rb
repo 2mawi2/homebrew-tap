@@ -1,10 +1,10 @@
 class Para < Formula
   desc "Parallel IDE workflow helper for Git worktrees"
   homepage "https://github.com/2mawi2/para"
-  url "https://github.com/2mawi2/para/archive/refs/tags/v1.0.26.tar.gz"
-  sha256 "ca4d179e8864f1ecebe6939c967919284b8da65c1a4553c8ae1be784790727f3"
+  url "https://github.com/2mawi2/para/archive/refs/tags/v1.0.27.tar.gz"
+  sha256 "60ec21580bee533a2bdb4ff95dfeb58db4bc626827bc230e304aaa4f00bce16b"
   license "MIT"
-  version "1.0.26"
+  version "1.0.27"
 
   def install
     # Install the para script and libraries
