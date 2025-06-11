@@ -1,8 +1,8 @@
 class Para < Formula
   desc "Parallel IDE workflow helper for Git worktrees"
   homepage "https://github.com/2mawi2/para"
-  url "https://github.com/2mawi2/para/archive/refs/tags/v1.1.5.tar.gz"
-  sha256 "2b6a7f205823c9faf37fd3cf3ecbfa2d1f2b3d97769a924ac12a4f4477a01889"
+  url "https://github.com/2mawi2/para/archive/refs/tags/v1.1.7.tar.gz"
+  sha256 "350abef2e7f3703f8e1bb3e2b79fa73c7a9b7ad4e635f6e632180ebb28b61978"
   license "MIT"
 
   depends_on "rust" => :build
