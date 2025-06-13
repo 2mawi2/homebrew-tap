@@ -1,8 +1,8 @@
 class Para < Formula
   desc "Parallel IDE workflow helper for Git worktrees"
   homepage "https://github.com/2mawi2/para"
-  url "https://github.com/2mawi2/para/archive/refs/tags/v1.1.22.tar.gz"
-  sha256 "9b8a181408b358d9bdb211bc771388fa2974826a5d0587cd6399e7ecf08dc5ef"
+  url "https://github.com/2mawi2/para/archive/refs/tags/v1.1.23.tar.gz"
+  sha256 "7b5fddee51378b8b4f9565d6d264c96fed00136469e46a79760b7c9abd4258d1"
   license "MIT"
 
   depends_on "rust" => :build
@@ -13,6 +13,8 @@ class Para < Formula
     cd "mcp-server-ts" do
       system "npm", "ci"
       system "npm", "run", "build"
+      # Remove old wrapper script if it exists (for upgrades)
+      rm_f bin/"para-mcp-server"
       # Create wrapper script for the MCP server
       (bin/"para-mcp-server").write <<~EOS
         #!/bin/bash
