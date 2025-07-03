@@ -1,8 +1,8 @@
 class Para < Formula
   desc "Parallel IDE workflow helper for Git worktrees"
   homepage "https://github.com/2mawi2/para"
-  url "https://github.com/2mawi2/para/archive/refs/tags/v1.1.32.tar.gz"
-  sha256 "58e2e38435c4dcec195fcadce98ce92bd022b4158acce0bb1eea512a8aa4ad0e"
+  url "https://github.com/2mawi2/para/archive/refs/tags/v1.1.35.tar.gz"
+  sha256 "c037791dbb6dd3d9123e874a3383fb3e3a478fea91e6a766b449b21411c0edaa"
   license "MIT"
 
   depends_on "rust" => :build
@@ -14,8 +14,14 @@ class Para < Formula
     
     # Build and install TypeScript MCP server with dependencies
     cd "mcp-server-ts" do
-      system "npm", "ci"
-      system "npm", "run", "build"
+      # Use bun if available, fallback to npm
+      if which("bun")
+        system "bun", "install"
+        system "bun", "run", "build"
+      else
+        system "npm", "ci"
+        system "npm", "run", "build"
+      end
       
       # Install the MCP server and its node_modules to libexec
       libexec.install "build/para-mcp-server.js"
