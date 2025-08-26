@@ -1,11 +1,11 @@
 cask "schaltwerk" do
-  version "0.1.3"
-  sha256 "185556f67b491b571f71eb341cad1b65b4e1b787649e6dd762f97a1e8a455ac4"
+  version "0.1.18"
+  sha256 "432dde14ffcff7e01c913bcc197bd9cfcc0f8849d9af669d3b2465842dbbc6ee"
 
   url "https://github.com/2mawi2/homebrew-tap/raw/main/releases/Schaltwerk-#{version}-universal.dmg"
   name "Schaltwerk"
   desc "Visual interface for managing Para sessions"
-  homepage "https://github.com/2mawi2/para-ui"
+  homepage "https://github.com/2mawi2/schaltwerk"
 
   app "Schaltwerk.app"
 
