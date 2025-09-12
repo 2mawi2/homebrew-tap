@@ -1,6 +1,6 @@
 cask "schaltwerk" do
-  version "0.1.21"
-  sha256 "61ea886a39290358f7b4faa789d763efdcfe7ed865d701c326f3968964fad929"
+  version "0.1.23"
+  sha256 "313dd4b5c609d6a6a27a2bc5c3ba5f2cebaca89344aa3521e094a728dfc8838d"
 
   url "https://github.com/2mawi2/homebrew-tap/raw/main/releases/Schaltwerk-#{version}-universal.dmg"
   name "Schaltwerk"
@@ -43,6 +43,8 @@ cask "schaltwerk" do
       fi
     SHELL
     File.chmod 0755, wrapper_script
+    
+    ohai "Schaltwerk MCP configuration is now available through Settings → Agent Configuration → Claude tab."
   end
 
   zap trash: [
