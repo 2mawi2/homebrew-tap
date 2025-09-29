@@ -1,6 +1,6 @@
 cask "schaltwerk" do
-  version "0.1.41"
-  sha256 "923226a494b39207919adea50ba67f3f60e224a0a577021d63d8f0a8c24f2cd3"
+  version "0.1.43"
+  sha256 "ebc74f3b02a005149cbf602d4623129e6c027e26af041a01d210834f81b5047b"
 
   url "https://github.com/2mawi2/homebrew-tap/raw/main/releases/Schaltwerk-#{version}-universal.dmg"
   name "Schaltwerk"
