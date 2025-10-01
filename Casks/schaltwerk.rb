@@ -1,6 +1,6 @@
 cask "schaltwerk" do
-  version "0.1.43"
-  sha256 "ebc74f3b02a005149cbf602d4623129e6c027e26af041a01d210834f81b5047b"
+  version "0.2.0"
+  sha256 "cab0a683e23ca0dca38e9ab7ce9ccc529fc9b2248269da90e5ebc3bd08de6dab"
 
   url "https://github.com/2mawi2/homebrew-tap/raw/main/releases/Schaltwerk-#{version}-universal.dmg"
   name "Schaltwerk"
@@ -14,36 +14,36 @@ cask "schaltwerk" do
     system_command "/usr/bin/xattr",
                   args: ["-cr", "#{appdir}/Schaltwerk.app"],
                   sudo: false
-    
+
     # Ad-hoc sign if needed
     system_command "/usr/bin/codesign",
                   args: ["--force", "--deep", "-s", "-", "#{appdir}/Schaltwerk.app"],
                   sudo: false
-    
+
     # Create wrapper script for CLI with better handling
     wrapper_script = "#{HOMEBREW_PREFIX}/bin/schaltwerk"
     File.write wrapper_script, <<~SHELL
       #!/bin/bash
       APP_PATH="#{appdir}/Schaltwerk.app"
       EXECUTABLE_PATH="$APP_PATH/Contents/MacOS/Schaltwerk"
-      
+
       if [ $# -eq 0 ]; then
         open "$APP_PATH"
       else
         TARGET_DIR="$1"
         [[ ! "$TARGET_DIR" = /* ]] && TARGET_DIR="$(pwd)/$TARGET_DIR"
         TARGET_DIR="${TARGET_DIR%/}"
-        
+
         if [ ! -d "$TARGET_DIR" ]; then
           echo "Error: Directory not found: $TARGET_DIR" >&2
           exit 1
         fi
-        
+
         "$EXECUTABLE_PATH" "$TARGET_DIR" &
       fi
     SHELL
     File.chmod 0755, wrapper_script
-    
+
     ohai "Schaltwerk MCP configuration is now available through Settings → Agent Configuration → Claude tab."
   end
 
