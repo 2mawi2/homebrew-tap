@@ -1,11 +1,24 @@
 cask "schaltwerk" do
-  version "0.2.2"
-  sha256 "14706e5d7ca90832e5738603643f14f161e13d6468e12979f03742c346363f22"
+  version "0.2.6"
+  sha256 "6b8157662c78370fead03ac755ba43bb6eb0b4d30d8a2bf10293220df508ba57"
 
   url "https://github.com/2mawi2/homebrew-tap/raw/main/releases/Schaltwerk-#{version}-universal.dmg"
   name "Schaltwerk"
   desc "Visual interface for managing Para sessions"
   homepage "https://github.com/2mawi2/schaltwerk"
+
+  uninstall_preflight do
+    staged_app = staged_path/"Schaltwerk.app"
+    next unless staged_app.exist?
+
+    # The staged path should normally be a symlink. If it is a real directory,
+    # a previous upgrade was interrupted and left a full copy behind which
+    # breaks subsequent upgrades. Clean it up before Homebrew runs move_back.
+    next if staged_app.symlink?
+
+    require "fileutils"
+    FileUtils.rm_rf(staged_app)
+  end
 
   app "Schaltwerk.app"
 
@@ -46,6 +59,10 @@ cask "schaltwerk" do
 
     ohai "Schaltwerk MCP configuration is now available through Settings → Agent Configuration → Claude tab."
   end
+
+  uninstall delete: [
+    "#{HOMEBREW_PREFIX}/bin/schaltwerk",
+  ]
 
   zap trash: [
     "~/Library/Application Support/schaltwerk",
