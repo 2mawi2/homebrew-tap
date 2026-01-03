@@ -1,6 +1,6 @@
 cask "schaltwerk" do
-  version "0.11.2"
-  sha256 "fbbf668c52100498ab6bd5e32166f9e4e5c34b899ed4bcf804109e6ee4106158"
+  version "0.11.3"
+  sha256 "fa6262d9772c46b0cf2f88794d7dcdcb3886999a779db819bf8782d91ebca20b"
 
   url "https://github.com/2mawi2/schaltwerk/releases/download/v#{version}/Schaltwerk-#{version}-universal.dmg"
   name "Schaltwerk"
