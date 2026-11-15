@@ -1,6 +1,6 @@
 cask "clicket" do
-  version "1.0.12"
-  sha256 "d9309a0089610f16a200a91257bba0b99a89faefc7205f756959910595731260"
+  version "1.0.13"
+  sha256 "58062a8996f194f33692fa9b70fb973ebd831721392e586bbf5dfc1a723af432"
 
   url "https://github.com/2mawi2/clicket-releases/releases/download/v#{version}/Clicket.zip"
   name "Clicket"
@@ -8,12 +8,14 @@ cask "clicket" do
   homepage "https://github.com/2mawi2/clicket-releases"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Clicket.app"
 
   # Not ad-hoc re-signed: every release carries the same certificate, which is
-  # what lets the Accessibility grant survive an upgrade.
+  # what lets the Accessibility grant survive an upgrade. A legacy flight block
+  # because postflight_steps has no step for the quarantine flag, and a
+  # self-signed app that keeps it is blocked by Gatekeeper on first launch.
   postflight do
     system_command "/usr/bin/xattr", args: ["-cr", "#{appdir}/Clicket.app"], sudo: false
   end
