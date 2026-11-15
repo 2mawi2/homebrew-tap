@@ -1,6 +1,6 @@
 cask "clicket" do
-  version "1.0.57"
-  sha256 "7428ebf76fd774c736d521518331e0fbd1f3210cf2301b7a209b59a5caf4848c"
+  version "1.0.59"
+  sha256 "04bc52d68419f02731922926a2e588cc4459b37d31d4cc0f3586122524a8145e"
 
   url "https://github.com/2mawi2/clicket-releases/releases/download/v#{version}/Clicket.zip"
   name "Clicket"
